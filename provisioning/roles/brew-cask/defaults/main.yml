@@ -1,0 +1,23 @@
+homebrew_cask_packages:
+  - astah-community
+  - atom
+  - cyberduck
+  - dash
+  - dropbox
+  - evernote
+  - firefox
+  - google-chrome
+  - google-japanese-ime
+  - iterm2
+  - karabiner
+  - licecap
+  - macvim
+  - microsoft-office
+  - mysqlworkbench
+  - postico
+  - seashore
+  - sequel-pro
+  - skitch
+  - skype
+  - slack
+  - trailer

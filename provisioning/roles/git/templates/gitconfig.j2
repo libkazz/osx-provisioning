@@ -1,0 +1,96 @@
+[user]
+  name = Kazuaki Takemoto
+  email = libkazz@gmail.com
+[core]
+  excludesfile = /Users/takemo/.gitignore_global
+  pager = less -FXRS
+  editor = vim -c \"set fenc=utf-8\"
+[push]
+  default = matching
+[color]
+  commit = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[merge]
+  tool = /Users/takemo/bin/diff.py
+[alias]
+  a = add
+  aa = add -A
+  au = add -u
+  b = branch
+  ba = branch -a
+  bc = !git branch --no-color --merged 2> /dev/null | grep -v -e '*' -e master | xargs git branch -d
+  ci = commit -v
+  ciam = commit -v --amend
+  wip = commit -m "[wip]"
+  co = checkout
+  cb = checkout -b
+  cm = checkout master
+  d = diff
+  dm = diff master
+
+  ba = branch -a
+  bc = !git branch --no-color --merged 2> /dev/null | grep -v -e '*' -e master | xargs git branch -d
+  ci = commit -v
+  ciam = commit -v --amend
+  wip = commit -m "[wip]"
+  co = checkout
+  cb = checkout -b
+  cm = checkout master
+  d = diff
+  dm = diff master           # masterとのdiff
+  dw = diff --color-words    # 単語単位でいろつけてdiff
+  dc = diff --cached         # addされているものとのdiff
+  ds = diff --staged         # 同上(1.6.1移行)
+  d1 = diff HEAD~            # HEADから1つ前とdiff
+  d2 = diff HEAD~~           # HEADから2つ前とdiff
+  d3 = diff HEAD~~~          # HEADから3つ前とdiff
+  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+  deployed = "!$SHELL -c \"ssh omg-app2 -C 'cd /ebs/webapps/omg-spree/current/ && git log | head -10'\""
+  f = fetch origin
+  fff = fetch origin --prune
+  fp = format-patch
+  g = !git gui &        gr = log --graph
+  go = log --graph --pretty=oneline --abbrev-commit
+  gr = grep -n -p
+  k = !gitk &
+  ka = !gitk --all & all
+  wc = whatchanged         # logに変更されたファイルも一緒に出す
+  lc = log ORIG_HEAD.. --stat --no-merges
+  ls = log --stat          # logに変更されたファイルも一緒に出す
+  lp = log --patch-with-stat
+  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
+  lr = log origin          # originのlog
+  lg = log --graph --oneline
+  lgg = log --graph
+  mnf = merge --no-ff
+  mt = mergetool
+  mr = reset --hard ORIG_HEAD
+  mmm = !git fetch origin && git merge origin/master
+  pr = "!$SHELL -c \"git push origin $1; hub pull-request -b master -h mrtaddy:${1} \""
+  p = format-patch -1
+  rrr = !git fetch origin && git rebase origin/master
+  rc = rebase --continue
+  serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+  sra = svn rebase --all
+  sh = !git-sh
+  t = status  # よくする typo 対策
+  st = status
+  stm = status --untracked=no
+  pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
+  mergelog = "!$SHELL -c 'git log --grep=\"Merge pull request\" origin/master | egrep -v \"^(commit|Merge:|Author:|Date:| +Merge pull)\" | egrep \"[^ ]\" | head -20 | sed \"s/\\[fi.*$//\" | sed \"s/^ */- /\"' __dummy__"
+  pulse = "!$SHELL -c \"git la HEAD | grep -v 'Merge pull' | sed 's/:.*//' | egrep -o '\\([^\\)]*\\)' | sort | uniq -c | sort -r\""
+  # 未検証
+  refresh = !$SHELL -c "git fetch origin && git rebase `git symbolic-ref HEAD 2>/dev/null | sed 's/refs\\/heads/origin/'`"
+  # trashfixes = !$SHELL -c 'for b in `git branch | egrep --color=never "^\s*fix"`; do git branch -m $b trash/$b; done'
+[filter "media"]
+        clean = git-media-clean %f
+        smudge = git-media-smudge %f
+[ghq]
+  root = ~/src
+[ghq "import"]
+  starred = github-list-starred

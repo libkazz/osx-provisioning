@@ -1,0 +1,29 @@
+---
+homebrew_repositories: []
+
+homebrew_packages:
+  - ag
+  - autojump
+  #- aws-cli
+  - ghq
+  - ghc
+  - go
+  - heroku
+  - imagemagick
+  - nkf
+  - node
+  - openssl
+  - { name: openssl, state: linked, install_options: force }
+  - peco
+  - phantomjs
+  - pstree
+  - readline
+  - redis
+  - rbenv
+  - ruby-build
+  - tig
+  - tmux
+  - tree
+  - zsh
+  - zsh-completions
+  - zsh-syntax-highlighting

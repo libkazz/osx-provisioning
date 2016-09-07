@@ -19,6 +19,7 @@ homebrew_packages:
   - pstree
   - python
   - pyenv
+  - pyenv-virtualenv
   - readline
   - redis
   - rbenv

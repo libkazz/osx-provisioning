@@ -17,6 +17,7 @@ homebrew_packages:
   - peco
   - phantomjs
   - pstree
+  - python
   - readline
   - redis
   - rbenv

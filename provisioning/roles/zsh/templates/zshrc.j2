@@ -209,3 +209,8 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# pyenv
+# http://qiita.com/bohemian916/items/4f0736dcea932a162d9e
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"

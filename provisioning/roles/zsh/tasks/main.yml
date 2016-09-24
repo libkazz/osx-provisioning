@@ -56,14 +56,16 @@
   when: antigen.stat.exists
 
 - name: download antigen
-  get_url: url=https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh dest=~/.zsh/antigen.zsh force=True
+  git: repo=git@github.com:zsh-users/antigen.git
+       dest=~/.zsh/antigen
+       force=true
 
 - name: deploy zshrc
   template: src=zshrc.j2 dest=~/.zshrc force=True
 
 - name: set append command
   set_fact:
-    source_antigen: 'source ~/.zsh/antigen.zsh'
+    source_antigen: 'source ~/.zsh/antigen/antigen.zsh'
 
 - name: grep command
   shell: >

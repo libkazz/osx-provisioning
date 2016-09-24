@@ -189,9 +189,10 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
+source ~/.zsh/antigen/antigen.zsh
+
 # rbenv
 [[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
-source ~/.zsh/antigen.zsh
 
 # peco select history
 function peco-select-history() {

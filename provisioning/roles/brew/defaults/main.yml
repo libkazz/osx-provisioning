@@ -16,6 +16,7 @@ homebrew_packages:
   - { name: openssl, state: linked, install_options: force }
   - peco
   - phantomjs
+  - postgresql
   - pstree
   - python
   - pyenv

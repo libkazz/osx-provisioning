@@ -14,7 +14,7 @@
 - name: grep shells
   shell: >
     cat /etc/shells | grep "{{which_zsh.stdout}}"
-  register: grep_shells 
+  register: grep_shells
   ignore_errors: True
 
 - debug: msg="{{grep_shells}}"
@@ -94,7 +94,7 @@
   command: rm -rf /tmp/.zshrc
   when: tmp_zshrc.stat.exists
 
-- name: rename zshrc 
+- name: rename zshrc
   command: mv ~/.zshrc /tmp/.zshrc
 
 - name: apply prezto setting
@@ -106,7 +106,7 @@
   shell: >
     cat /tmp/.zshrc >> ~/.zshrc
 
-- name: get path of original preztorc 
+- name: get path of original preztorc
   command: readlink ~/.zpreztorc
   register: zpreztorc_path
 

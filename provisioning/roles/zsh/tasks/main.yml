@@ -24,7 +24,7 @@
   shell: >
     echo {{which_zsh.stdout}} >> /etc/shells
   when: grep_shells.rc != 0
-  sudo: true
+  become: yes
 
 - name: notify please input password
   shell: >
